@@ -1,0 +1,37 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<PrimeTest2.Models.Product>
+
+<h1>All Products</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>ProductCode</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.ProductCode</td>
+                <td>@product.Description</td>
+                <td>@product.Prize</td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Product" asp-action="Details" asp-route-id="@product.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

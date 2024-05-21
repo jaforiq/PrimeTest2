@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model PrimeTest2.Models.ShoppingItemViewModel;
+
+<h1>Shopping Card</h1>
+
+<table class=" table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Product Code</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>@item.Product.Name</td>
+                <td>@item.Product.ProductCode</td>
+                <td>@item.Product.Prize</td>
+                <td>@item.Quantity</td>
+                <td>@((item.Product.Prize* item.Quantity).ToString("C"))</td>
+            </tr>
+        }
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Total:</td>
+            <td>@Model.TotalPrice?.ToString("C")</td>
+        </tr>
+    </tbody>
+</table>
+
+<a class="btn btn-success" asp-controller="ShoppingItem" asp-action="ViewInvoice">Save</a> <br />
+<a class="btn btn-success" asp-controller="ShoppingItem" asp-action="AllPurches">Purches Summary</a>
